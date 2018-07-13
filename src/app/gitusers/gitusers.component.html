@@ -1,0 +1,10 @@
+<h2>Github Users</h2>
+<ul class="users">
+  <li *ngFor="let user of users" 
+      (click)="onSelect(user)" 
+      [class.selected]="user === selectedUser">
+      <span class="badge">{{user.id}}</span> {{user.name}}
+  </li>
+</ul>
+
+<app-gituser-detail [user]="selectedUser"></app-gituser-detail>
