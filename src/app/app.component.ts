@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AppService }from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Github users application';
+  public users;
+  constructor(
+    private appService:AppService
+  ){
+
+  }
+
+  // ngOnInit(){
+  //   this.getUsers();
+  // }
+
+  // getUsers(){
+  //   this.appService.getGitHubUsers()
+  //     .subscribe((data) => {
+  //       this.users = data;
+  //       console.log('Users', this.users);
+  //     })
+  // }
+
+
 }

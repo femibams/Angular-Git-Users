@@ -1,22 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { GitUsers } from '../gitusers';
-import { USERS } from '../mock-users';
+
+import { AppService }from '../app.service';
 @Component({
   selector: 'app-gitusers',
   templateUrl: './gitusers.component.html',
   styleUrls: ['./gitusers.component.css']
 })
 export class GitusersComponent implements OnInit {
-  // user: GitUsers = {
-  //   id: 1,
-  //   name: 'Windstorm'
-  // };
-  users = USERS;
-  // users: GitUsers[];
+  public users;
   selectedUser: GitUsers;
-  constructor() { }
+  constructor(
+    private appService: AppService
+  ) { }
 
   ngOnInit() {
+    this.getUsers();
+  }
+
+  getUsers(){
+    this.appService.getGitHubUsers()
+      .subscribe((data) => {
+        this.users = data;
+      })
   }
 
   onSelect(user: GitUsers): void {
