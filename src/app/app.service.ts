@@ -14,5 +14,5 @@ export class AppService {
   getGitHubUsers(){
     return this.http.get<any>(this.url)
   }
-  
+
 }

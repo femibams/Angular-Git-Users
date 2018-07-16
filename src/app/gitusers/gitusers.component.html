@@ -3,7 +3,12 @@
   <li *ngFor="let user of users" 
       (click)="onSelect(user)" 
       [class.selected]="user === selectedUser">
-      <span class="badge">{{user.id}}</span> {{user.name}}
+      <span class="badge">
+        {{user?.id}}
+      </span> 
+      {{user?.login}}
+
+      <!-- {{ user | json}} -->
   </li>
 </ul>
 

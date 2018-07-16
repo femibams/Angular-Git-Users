@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppService }from './app.service';
 
 @Component({
@@ -15,13 +15,17 @@ export class AppComponent {
 
   }
 
-  getUsers(){
-    this.appService.getGitHubUsers()
-      .subscribe((data) => {
-        this.users = data;
-        console.log('Users', this.users);
-      })
-  }
+  // ngOnInit(){
+  //   this.getUsers();
+  // }
+
+  // getUsers(){
+  //   this.appService.getGitHubUsers()
+  //     .subscribe((data) => {
+  //       this.users = data;
+  //       console.log('Users', this.users);
+  //     })
+  // }
 
 
 }
